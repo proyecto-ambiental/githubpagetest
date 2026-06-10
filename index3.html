@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contaminación Ambiental</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins', sans-serif;
+    scroll-behavior:smooth;
+}
+
+/* ANIMACIÓN GLOBAL */
+body{
+    background:#f4f7f6;
+    color:#333;
+    opacity:0;
+    animation:fadeIn 1s ease forwards;
+}
+
+@keyframes fadeIn{
+    from{opacity:0}
+    to{opacity:1}
+}
+
+/* MODO OSCURO */
+body.dark{
+    background:#121212;
+    color:#eee;
+}
+
+/* NAV */
+nav{
+    position:fixed;
+    top:0;
+    width:100%;
+    background:rgba(27,94,32,0.9);
+    backdrop-filter:blur(10px);
+    color:white;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 20px;
+    z-index:1000;
+    animation:slideDown 0.8s ease;
+}
+
+@keyframes slideDown{
+    from{transform:translateY(-100%)}
+    to{transform:translateY(0)}
+}
+
+nav button{
+    background:white;
+    border:none;
+    padding:8px 12px;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+nav button:hover{
+    transform:scale(1.1);
+}
+
+/* HERO */
+.hero{
+    height:100vh;
+    background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
+    url('https://images.unsplash.com/photo-1618477247222-acbdb0e159b2') center/cover;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    color:white;
+    padding:20px;
+}
+
+.hero h2{
+    font-size:45px;
+    animation:zoomIn 1s ease;
+}
+
+.hero p{
+    animation:fadeUp 1.2s ease;
+}
+
+/* ANIMACIONES */
+@keyframes zoomIn{
+    from{transform:scale(0.8);opacity:0}
+    to{transform:scale(1);opacity:1}
+}
+
+@keyframes fadeUp{
+    from{transform:translateY(20px);opacity:0}
+    to{transform:translateY(0);opacity:1}
+}
+
+/* SECCIONES */
+section{
+    padding:80px 20px;
+    max-width:1100px;
+    margin:auto;
+}
+
+/* TITULOS */
+h2{
+    color:#1b5e20;
+    margin-bottom:20px;
+    position:relative;
+    animation:fadeUp 1s ease;
+}
+
+/* CARDS MODERNAS */
+.card{
+    background:rgba(255,255,255,0.9);
+    backdrop-filter:blur(10px);
+    padding:20px;
+    margin:15px 0;
+    border-radius:15px;
+    box-shadow:0 8px 25px rgba(0,0,0,0.1);
+    transition:0.4s ease;
+    transform:translateY(20px);
+    opacity:0;
+}
+
+/* cuando aparecen */
+.card.show{
+    transform:translateY(0);
+    opacity:1;
+}
+
+.card:hover{
+    transform:translateY(-8px) scale(1.02);
+}
+
+/* BOTONES */
+.btn{
+    display:inline-block;
+    margin-top:10px;
+    padding:10px 15px;
+    background:#1b5e20;
+    color:white;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.btn:hover{
+    transform:scale(1.05);
+    background:#2e7d32;
+}
+
+/* GALERÍA */
+.galeria{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:15px;
+}
+
+.galeria img{
+    width:100%;
+    border-radius:15px;
+    transition:0.4s;
+    filter:brightness(0.9);
+}
+
+.galeria img:hover{
+    transform:scale(1.05);
+    filter:brightness(1);
+}
+
+/* BOTÓN ARRIBA */
+#topBtn{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    background:#1b5e20;
+    color:white;
+    border:none;
+    padding:12px;
+    border-radius:50%;
+    cursor:pointer;
+    display:none;
+    transition:0.3s;
+}
+
+#topBtn:hover{
+    transform:scale(1.1);
+}
+
+/* FOOTER */
+footer{
+    background:#1b5e20;
+    color:white;
+    text-align:center;
+    padding:30px;
+    margin-top:40px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav>
+    <div>🌎 Contaminación Ambiental</div>
+    <button onclick="toggleDark()">🌙 Modo</button>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+    <div>
+        <h2>Contaminación Ambiental</h2>
+        <p>Cuidemos el planeta 🌿</p>
+        <button class="btn" onclick="scrollToInfo()">Ver información</button>
+    </div>
+</div>
+
+<!-- INFO -->
+<section id="info">
+<h2>🌱 Problemática</h2>
+
+<div class="card">La contaminación ambiental afecta el aire, agua y suelo.</div>
+<div class="card">Es causada por industria, transporte y basura.</div>
+
+</section>
+
+<!-- IMÁGENES -->
+<section>
+<h2>🌫️ Imágenes</h2>
+
+<div class="galeria">
+    <img src="https://images.unsplash.com/photo-1581093588401-11f3d5b0c2d4">
+    <img src="https://images.unsplash.com/photo-1611273426858-4501b1d3f6a4">
+    <img src="https://images.unsplash.com/photo-1594737625785-c6f0c8f9b0c1">
+</div>
+</section>
+
+<!-- CONTACTO -->
+<section>
+<h2>📌 Contacto</h2>
+
+<div class="card">Ingrid Nicol Rayas Martínez</div>
+<div class="card">Grupo: 202</div>
+<div class="card">Semestre: 2</div>
+</section>
+
+<!-- BOTÓN ARRIBA -->
+<button id="topBtn" onclick="goTop()">⬆</button>
+
+<!-- FOOTER -->
+<footer>
+Proyecto escolar 🌎 Contaminación Ambiental
+</footer>
+
+<!-- JS -->
+<script>
+
+// MODO OSCURO
+function toggleDark(){
+    document.body.classList.toggle("dark");
+}
+
+// SCROLL
+function scrollToInfo(){
+    document.getElementById("info").scrollIntoView({behavior:"smooth"});
+}
+
+// BOTÓN ARRIBA
+window.onscroll = function(){
+    let btn = document.getElementById("topBtn");
+    if(document.documentElement.scrollTop > 200){
+        btn.style.display = "block";
+    } else {
+        btn.style.display = "none";
+    }
+
+    revealCards();
+};
+
+function goTop(){
+    window.scrollTo({top:0, behavior:"smooth"});
+}
+
+// ANIMACIÓN AL HACER SCROLL
+function revealCards(){
+    let cards = document.querySelectorAll(".card");
+    let trigger = window.innerHeight * 0.85;
+
+    cards.forEach(card=>{
+        let top = card.getBoundingClientRect().top;
+        if(top < trigger){
+            card.classList.add("show");
+        }
+    });
+}
+
+// INICIAL
+window.onload = revealCards;
+
+</script>
+
+</body>
+</html>
